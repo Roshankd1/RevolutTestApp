@@ -1,7 +1,8 @@
-package com.application.revoluttestapp
+package com.application.revoluttestapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.application.revoluttestapp.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -10,6 +11,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
     }
+
 
 
 }
