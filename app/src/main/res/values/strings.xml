@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app" tools:ignore="ExtraTranslation">RevolutTestApp</string>
+    <string name="app_name" tools:ignore="ExtraTranslation">RevolutTestApp</string>
     <string name="label_rates">Rates</string>
 
     <!-- Currencies -->

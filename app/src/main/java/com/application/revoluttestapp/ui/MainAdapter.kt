@@ -127,12 +127,7 @@ class MainAdapter(private val amountChangeListener: AmountChangeListener) :
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     if (s.toString().isNotEmpty() && currencyAmount!!.isFocused) {
-                        if (s!!.length==1 && s == ".") {
-                            //does nothing to avoid parse exception
-                            return
-                        }else{
                             amountChangeListener.onAmountChanged(symbol, s.toString().toFloat())
-                        }
                     }
                 }
 

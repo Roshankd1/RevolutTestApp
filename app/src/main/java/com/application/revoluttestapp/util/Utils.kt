@@ -11,7 +11,7 @@ fun getCurrencyNameResId(context: Context, symbol: String) =
 fun getCurrencyFlagId(context: Context, symbol: String) = context.resources.getIdentifier(
     "ic_" + symbol + "_flag", "mipmap", context.packageName)
 
-fun String.toFloat(): Float = if (isNullOrBlank()) {
+fun String.toFloat(): Float = if (isNullOrBlank() || equals(".")) {
     0F
 } else {
     DecimalFormat("0.#", DecimalFormatSymbols.getInstance(Locale.getDefault())).parse(this).toFloat()
