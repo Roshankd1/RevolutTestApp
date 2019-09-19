@@ -19,7 +19,7 @@ class MainPresenter @Inject constructor(private val rateUseCase: RateUseCase) {
     }
 
     lateinit var converterView: Converter
-    lateinit var disposable: Disposable
+    private lateinit var disposable: Disposable
 
     private var currentBase: String = ""
     private var viewStopped = false
@@ -43,13 +43,19 @@ class MainPresenter @Inject constructor(private val rateUseCase: RateUseCase) {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .repeatUntil { viewStopped || !base.equals(currentBase, ignoreCase = true) }
-                .subscribe { it ->
+                .subscribe({ it ->
                     val rates = ArrayList<Rate>()
                     rates.add(Rate(it.base, 1.0F))
                     rates.addAll(it.rates.map { Rate(it.key, it.value) })
 
                     converterView.updateRatesList(rates)
-                }
+                    if (!isLoaded) {
+                        converterView.showLoading(false)
+                    }
+                    isLoaded = true
+                }, {
+                    converterView.showErrorMessage()
+                })
         }
     }
 

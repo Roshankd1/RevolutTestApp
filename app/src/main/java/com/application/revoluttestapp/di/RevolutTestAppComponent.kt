@@ -11,7 +11,9 @@ import javax.inject.Singleton
 @Singleton
 @Component(
     modules = [
-        RateServiceModule::class]
+        MainActivityModule::class,
+        RateServiceModule::class,
+        RateRepoModule::class]
 )
 interface RevolutTestAppComponent {
 
