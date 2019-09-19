@@ -41,6 +41,7 @@ class MainPresenter @Inject constructor(private val rateUseCase: RateUseCase) {
                 }
                 .delay(1000, TimeUnit.MILLISECONDS)
                 .subscribeOn(Schedulers.io())
+                .retry(3)
                 .observeOn(AndroidSchedulers.mainThread())
                 .repeatUntil { viewStopped || !base.equals(currentBase, ignoreCase = true) }
                 .subscribe({ it ->

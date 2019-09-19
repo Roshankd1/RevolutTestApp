@@ -75,11 +75,11 @@ class MainAdapter(private val amountChangeListener: AmountChangeListener) :
     }
 
     inner class RateViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var currencyFlag: AppCompatImageView = itemView.icCurrencyFlag
-        var currencySymbol: AppCompatTextView = itemView.lblCurrencySymbol
-        var currencyName: AppCompatTextView = itemView.lblCurrencyName
+        private var currencyFlag: AppCompatImageView = itemView.icCurrencyFlag
+        private var currencySymbol: AppCompatTextView = itemView.lblCurrencySymbol
+        private var currencyName: AppCompatTextView = itemView.lblCurrencyName
         var currencyAmount: AppCompatEditText? = itemView.txtCurrencyAmount
-        var symbol: String = ""
+        private var symbol: String = ""
 
 
         fun bind(rate: Rate) {

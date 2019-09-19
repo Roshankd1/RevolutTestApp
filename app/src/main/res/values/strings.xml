@@ -36,4 +36,8 @@
     <string name="currency_try">Turkish lira</string>
     <string name="currency_usd">United States dollar</string>
     <string name="currency_zar">South African rand</string>
+
+    <string name="error_title">Oops! Something went wrong</string>
+    <string name="error_message">Please check your internet connection</string>
+
 </resources>

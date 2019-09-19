@@ -66,8 +66,8 @@ class MainActivity : AppCompatActivity(), Converter {
 
     override fun showErrorMessage() {
         Sneaker.with(this)
-            .setTitle("Oops")
-            .setMessage("Something went wrong, please check if the internet connection is available")
+            .setTitle(resources.getString(R.string.error_title))
+            .setMessage(resources.getString(R.string.error_message))
             .sneakError()
     }
 
