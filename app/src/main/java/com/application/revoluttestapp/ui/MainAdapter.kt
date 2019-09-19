@@ -11,8 +11,10 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.application.revoluttestapp.R
 import com.application.revoluttestapp.rates.Rate
+import com.application.revoluttestapp.util.format
 import com.application.revoluttestapp.util.getCurrencyFlagId
 import com.application.revoluttestapp.util.getCurrencyNameResId
+import com.application.revoluttestapp.util.toFloat
 import kotlinx.android.synthetic.main.item_currency_converter.view.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -87,7 +89,7 @@ class MainAdapter(private val amountChangeListener: AmountChangeListener) :
             }
 
             if (!currencyAmount!!.isFocused) {
-                currencyAmount?.setText((rate.rate * amount).toString())
+                currencyAmount?.setText((rate.rate * amount).format())
             }
         }
 
@@ -124,8 +126,11 @@ class MainAdapter(private val amountChangeListener: AmountChangeListener) :
                 }
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                    if (s.toString().isNotEmpty()) {
-                        if (currencyAmount!!.isFocused) {
+                    if (s.toString().isNotEmpty() && currencyAmount!!.isFocused) {
+                        if (s!!.length==1 && s == ".") {
+                            //does nothing to avoid parse exception
+                            return
+                        }else{
                             amountChangeListener.onAmountChanged(symbol, s.toString().toFloat())
                         }
                     }

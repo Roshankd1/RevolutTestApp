@@ -1,19 +1,15 @@
 package com.application.revoluttestapp.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.application.revoluttestapp.R
-import com.application.revoluttestapp.application.RevolutTestApp
-import com.application.revoluttestapp.di.DaggerRevolutTestAppComponent
 import com.application.revoluttestapp.rates.Converter
 import com.application.revoluttestapp.rates.Rate
 import com.irozon.sneaker.Sneaker
-import dagger.android.support.AndroidSupportInjection
-import dagger.android.support.AndroidSupportInjectionModule
+import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_main.*
 import presenter.MainPresenter
 import javax.inject.Inject
@@ -28,6 +24,9 @@ class MainActivity : AppCompatActivity(), Converter {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //dependency inject for the activity
+        AndroidInjection.inject(this)
 
         presenter.converterView = this
         presenter.initRates()

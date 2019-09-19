@@ -15,6 +15,6 @@ interface RateService {
         const val BASE_URL = "https://revolut.duckdns.org/"
     }
 
-    @GET("/latest?base=EUR")
+    @GET("/latest")
     fun getBaseRates(@Query("base") base: String): Single<RateList>
 }
