@@ -24,14 +24,15 @@ import org.junit.runner.RunWith
 @LargeTest
 class MainActivityTest {
 
+    //option 1 to test RecyclerView
     @Rule
     @JvmField
     var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
 
+
     @Test
     fun scrollToItemBelowFold_checkItsText() {
         // First scroll to the position that needs to be matched and click on it.
-
         Thread.sleep(2000)
         onView(withId(R.id.recyclerViewContainer))
             .perform(
@@ -46,12 +47,14 @@ class MainActivityTest {
             R.string.currency_inr
         )
         onView(withText(itemElementText)).check(matches(isDisplayed()))
+
     }
 
     companion object {
         private const val ITEM_BELOW_THE_FOLD = 15
     }
 
+    //Option 2 to rest RecyclerView
     @Rule
     @JvmField
     var rule: ActivityTestRule<MainActivity> = ActivityTestRule(MainActivity::class.java)
@@ -69,8 +72,6 @@ class MainActivityTest {
         if (adapter?.itemCount != 0) {
             assertThat(adapter!!.itemCount, greaterThan(10))
         }
-
-
     }
 }
 
