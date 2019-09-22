@@ -20,6 +20,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewContainer"
+        android:focusable="true"
+        android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@android:layout/simple_list_item_activated_1" />

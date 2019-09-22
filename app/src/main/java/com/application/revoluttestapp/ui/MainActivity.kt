@@ -72,9 +72,8 @@ class MainActivity : AppCompatActivity(), Converter {
     }
 
     override fun onDestroy() {
-        presenter.onDestroy()
         super.onDestroy()
-
+        presenter.onDestroy()
     }
 
 }
