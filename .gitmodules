@@ -1,0 +1,3 @@
+[submodule "MovieApp"]
+	path = MovieApp
+	url = https://github.com/Roshankd1/MovieApp.git
